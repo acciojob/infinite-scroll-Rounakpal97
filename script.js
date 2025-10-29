@@ -1,7 +1,4 @@
-// Get the list element (assuming it has id="list")
-const list = document.getElementById('list');
-
-// Counter to keep track of item numbers
+const list = document.getElementById('infi-list');
 let counter = 1;
 
 // Function to add list items
@@ -17,13 +14,13 @@ function addItems(num) {
 // Add initial 10 items
 addItems(10);
 
-// Function to detect if user has scrolled to the bottom
+// Function to detect scroll near the bottom
 function handleScroll() {
-    if (list.scrollTop + list.clientHeight >= list.scrollHeight) {
-        // Add 2 more items when reaching bottom
+    // Trigger when user scrolls within 5px of the bottom
+    if (list.scrollTop + list.clientHeight >= list.scrollHeight - 5) {
         addItems(2);
     }
 }
 
-// Attach scroll event listener to the list
+// Attach scroll listener
 list.addEventListener('scroll', handleScroll);
